@@ -1,0 +1,76 @@
+// import { Agenda } from 'agenda';
+// import { values } from '../../key';
+// import PropertyRepo from '../dbservices/property.table';
+// import { emailSender } from './emailUtils';
+
+// const { db_password, db_username } = values;
+
+// const agenda = new Agenda({
+//   db: {
+//     address: `mongodb+srv://${db_username}:${db_password}@cluster0.hkapc.mongodb.net/?retryWrites=true&w=majority`,
+//   },
+// });
+
+// agenda.on('ready', async () => {
+//   console.log('connected');
+// });
+
+// agenda.define(
+//   'Property Published',
+//   //   { priority: 100, concurrency: 20 },
+//   async (job) => {
+//     await send_email();
+//   }
+// );
+
+// (async function () {
+//   await agenda.start();
+//   await agenda.every('5 minutes', 'Property Published');
+// })();
+
+// const send_email = async () => {
+//   //   console.log('Runing');
+//   const property = new PropertyRepo();
+//   const find_all_property =
+//     await property.findPropertyByEmailSentAnd20Minutes();
+
+//   console.log(find_all_property);
+
+//   for (const item of find_all_property) {
+//     const sent = await emailSender(
+//       'metrics@clooper.com ',
+//       'New Property Published',
+//       `<div>
+//         <h1>New Property Published</h1>
+//         <h2>${item.user.first_name} ${item.user.last_name}</h2>
+//         <p>Just published a property.</p>
+//         <table>
+//         <tr>
+//             <th>Property Name</th>
+//             <th>Address</th>
+//             <th>User Email</th>
+//         </tr>
+//         <tr>
+//             <td>${item.name}</td>
+//             <td>${item.address}</td>
+//             <td>${item.user.email}</td>
+//         </tr>
+//         </table>
+//        </div>`,
+//       null,
+//       item._id
+//     );
+//   }
+// };
+
+// const update_job = async (id) => {
+//   const property = new PropertyRepo();
+//   await property.updateProperty(id, { email_sent: true });
+// };
+
+// // first_name: string;
+// //   last_name: string;
+// //   email?: string;
+// //   phone: string;
+
+// export { agenda, send_email, update_job };

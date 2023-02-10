@@ -1,0 +1,36 @@
+{
+  "name": "serverless-nodejs-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node ./src/start.js",
+    "serverless-start": "serverless offline start",
+    "dev": "nodemon ./src/start.js",
+    "debug": "ts-node ./src/start.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "sequelize-cli": "^6.4.1",
+    "serverless-offline": "^12.0.4"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1304.0",
+    "axios": "^0.26.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.2",
+    "http-status": "^1.5.0",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "mongoose": "^5.9.22",
+    "serverless-http": "^3.1.1"
+  }
+}
